@@ -4,12 +4,14 @@ databases:
     databaseName: ecommerce_db
     user: aura_admin
     plan: free # Note: Render free databases expire after 90 days. Upgrade to starter if needed.
+    ipAllowList: []
 
 services:
   # 2. Managed Redis
   - type: redis
     name: aura-redis
     plan: free
+    ipAllowList: []
 
   # 3. FastAPI Backend
   - type: web
