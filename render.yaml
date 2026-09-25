@@ -17,7 +17,7 @@ services:
   - type: web
     name: aura-api
     env: python
-    buildCommand: pip install -r requirements.txt
+    buildCommand: pip install -r requirements.txt && pip install python-slugify
     startCommand: alembic upgrade head && python seed_db.py && uvicorn app.main:app --host 0.0.0.0 --port $PORT
     plan: free
     envVars:
@@ -68,7 +68,7 @@ services:
   - type: worker
     name: aura-worker
     env: python
-    buildCommand: pip install -r requirements.txt
+    buildCommand: pip install -r requirements.txt && pip install python-slugify
     startCommand: celery -A app.worker.celery_app worker --loglevel=info
     plan: free
     envVars:
