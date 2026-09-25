@@ -112,7 +112,7 @@ function PricingSection({ isPreview = false }: { isPreview?: boolean }) {
           <li><CheckCircle2 size={16} /> Standard shipping</li>
           <li><CheckCircle2 size={16} /> Style newsletters</li>
         </ul>
-        <Link className="outline full" to="/register">Join for free</Link>
+        <Link className="outline full" to="/contact">Join for free</Link>
       </div>
 
       <div className="pricing-card featured">
@@ -128,7 +128,7 @@ function PricingSection({ isPreview = false }: { isPreview?: boolean }) {
           <li><CheckCircle2 size={16} /> Free expedited shipping</li>
           <li><CheckCircle2 size={16} /> Anniversary gifts</li>
         </ul>
-        <Link className="primary full" to="/register">Upgrade to Lumière</Link>
+        <Link className="primary full" to="/contact">Upgrade to Lumière</Link>
       </div>
 
       <div className="pricing-card">
