@@ -1,6 +1,6 @@
 services:
   # 1. Managed PostgreSQL Database
-  - type: pgo
+  - type: postgres
     name: aura-db
     databaseName: ecommerce_db
     user: aura_admin
