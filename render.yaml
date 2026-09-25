@@ -1,11 +1,11 @@
-services:
+databases:
   # 1. Managed PostgreSQL Database
-  - type: postgres
-    name: aura-db
+  - name: aura-db
     databaseName: ecommerce_db
     user: aura_admin
     plan: free # Note: Render free databases expire after 90 days. Upgrade to starter if needed.
 
+services:
   # 2. Managed Redis
   - type: redis
     name: aura-redis
@@ -54,7 +54,7 @@ services:
       - key: MAIL_SSL_TLS
         value: "False"
       - key: EMAIL_VERIFY_BASE_URL
-        value: "https://your-frontend-url-here.vercel.app" # You will need to change this later
+        value: "https://your-frontend-url-here.vercel.app"
       - key: RAZORPAY_KEY_ID
         sync: false
       - key: RAZORPAY_SECRET_KEY
