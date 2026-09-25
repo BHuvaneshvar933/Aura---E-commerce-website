@@ -6,6 +6,7 @@ from datetime import datetime, timedelta, timezone
 from slugify import slugify
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy import select
 
 from app.db.models.product import Category, Product
 from app.db.models.coupon import Coupon, DiscountType
@@ -60,6 +61,11 @@ async def seed():
     SessionLocal = sessionmaker(engine, class_=AsyncSession, expire_on_commit=False)
     
     async with SessionLocal() as db:
+        existing = await db.execute(select(Category).limit(1))
+        if existing.scalar_one_or_none():
+            print("Database already seeded. Skipping.")
+            return
+        
         for cat_name, items in CATEGORIES.items():
             print(f"Creating category: {cat_name}")
             cat = Category(name=cat_name, slug=slugify(cat_name + "-" + str(uuid.uuid4())[:4]))
